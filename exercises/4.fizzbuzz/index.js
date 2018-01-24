@@ -12,6 +12,24 @@
 //   4
 //   buzz
 
-function fizzBuzz(n) {}
+function fizzBuzz(n) {
+
+  // helper function to console.log()
+  function log(n){
+    if( n % 15 === 0 ){
+      console.log('fizzbuzz')
+    }else if( n % 3 === 0 ){
+      console.log('fizz')
+    }else if( n % 5 === 0 ){
+      console.log('buzz')
+    }else{
+      console.log(n)
+    }
+  }
+
+  for( let i = 1; i <= n; i++ ){
+    log(i)
+  }
+}
 
 module.exports = fizzBuzz;

@@ -15,3 +15,10 @@ test('capitalizes the first letter', () => {
     'I Love Breakfast At Bill Miller Bbq'
   );
 });
+
+// added more space in the test strings
+test('capitalizes the first letter', () => {
+  expect(capitalize('   i   love breakfast !three')).toEqual(
+    '   I   Love Breakfast !three'
+  );
+});
