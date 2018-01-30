@@ -18,7 +18,16 @@
 //       '####'
 
 function steps(n) {
+  function printStep(n, level){
+    if( n < level ) return
 
+    let step = Array(n).fill("#")
+    step.fill(" ", level)
+    console.log(step.join(''))
+    printStep(n, level+1)
+  }
+
+  printStep(n, 1)
 }
 
 module.exports = steps;
@@ -43,6 +52,7 @@ module.exports = steps;
 // }
 
 // Solution 2: recursive
+// Complexity: O(n)
 //
 // function steps(n) {
 //   function printStep(n, level){
