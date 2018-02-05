@@ -8,13 +8,25 @@
 // Example:
 //   fib(4) === 3
 
-function fib(n, result = [0, 1]) {
-  if (n > 1) {
+function memoize(fn){
+  const cache = {};
 
+  return function(...args) {
+    if (cache[args]) return cache[args];
+
+    const result = fn.apply(this, args);
+    cache[args] = result;
+
+    return result;
   }
-
-  return result[n];
 }
+
+function slowFib(n, result = [0, 1]) {
+  if (n < 2) return n;
+  return fib(n - 1) + fib(n - 2);
+}
+
+const fib = memoize(slowFib);
 
 module.exports = fib;
 
@@ -37,7 +49,7 @@ module.exports = fib;
 
 /**
  * Solution 2: recursive
- * Complexity: O(logn)
+ * Complexity: O(nlogn)
  */
 // function fib(n) {
 //   if ( n < 2 ) return n;
@@ -51,5 +63,5 @@ module.exports = fib;
  *   If the function is called again with the same arguments, return
  *   the precomputed result, rather than return the function again.
  *
- * Complexity:
+ * Complexity: O(logn)
  */

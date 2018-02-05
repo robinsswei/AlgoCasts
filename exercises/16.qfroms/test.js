@@ -39,3 +39,19 @@ test('peek returns, but does not remove, the first value', () => {
   expect(q.remove()).toEqual(1);
   expect(q.remove()).toEqual(2);
 });
+
+// edge cases for empty queue
+test('remove returns undefined, when queue is empty', () => {
+  const q = new Queue();
+  q.add(1);
+  q.remove();
+  expect(q.remove()).toEqual(undefined);
+});
+
+// edge cases for empty queue
+test('peek returns undefined, when queue is empty', () => {
+  const q = new Queue();
+  q.add(1);
+  q.remove();
+  expect(q.peek()).toEqual(undefined);
+});
